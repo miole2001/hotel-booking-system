@@ -27,7 +27,7 @@ $result = $conn->query($sql);
 		window.location.href = 'add-booking.php';
 		</script>";
 	}
-kigwa
+
 }
 
 ?>
