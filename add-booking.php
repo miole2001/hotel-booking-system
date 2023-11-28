@@ -14,6 +14,10 @@ $departure = $_POST['departure_date'];
 $sql = "INSERT INTO booking (room_type, full_name, email, members, check_in, checkout) VALUES ('$room', '$name', '$members', '$email', '$arrival', '$departure')";
 
 $result = $conn->query($sql);
+$conn->query("SET @num := 0");
+$conn->query("UPDATE booking SET id = @num := @num + 1");
+
+
 
 	if($result){
 		echo "<script>
@@ -27,6 +31,7 @@ $result = $conn->query($sql);
 		window.location.href = 'add-booking.php';
 		</script>";
 	}
+	
 
 }
 
