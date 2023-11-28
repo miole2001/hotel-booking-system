@@ -1,5 +1,5 @@
-<?php include('includes/header.php'); ?>
-<?php 
+<?php include('includes/header.php');
+
 include('config/conn.php');
 
 if(isset($_POST['submit'])){
@@ -31,10 +31,8 @@ $conn->query("UPDATE booking SET id = @num := @num + 1");
 		window.location.href = 'add-booking.php';
 		</script>";
 	}
-	
 
 }
-
 ?>
 
 <div class="page-wrapper">
@@ -79,7 +77,7 @@ $conn->query("UPDATE booking SET id = @num := @num + 1");
 									<option>Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
-                                    <option value="3">3</option>
+                  <option value="3">3</option>
 									<option value="4">4</option>
 								</select>
 							</div>
@@ -118,7 +116,4 @@ $conn->query("UPDATE booking SET id = @num := @num + 1");
 		</div>
 	</div>
 </div>
-
-
-
 <?php include('includes/scripts.php'); ?>

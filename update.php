@@ -2,33 +2,29 @@
 
 include('includes/header.php');
 
-$id = $_GET['staff_id'];
-
-// Include your database connection file
+$id = $_GET['id'];
 include('config/conn.php');
 
-
-// Fetch existing data based on the user's ID
-$sql = "SELECT staff_id, name, email, role FROM staff WHERE staff_id = $id";
+$sql = "SELECT * FROM staff WHERE id = $id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $staff = $result->fetch_assoc(); // assuming 'id' is a unique primary key, no need for a loop
+    $staff = $result->fetch_assoc();
 } else {
-    die('User not found.'); // Or handle this scenario appropriately
+    die('User not found.'); 
 }
 
-// Check if form has been submitted
 if(isset($_POST['submit'])) {
-    // Get the values submitted from the form
-    $id_staff = $_POST['id'];
+    
+    $id_staff = $_POST['staff-id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $role = $_POST['role'];
-
+    $contact = $_POST['contact'];
+    $sex = $_POST['sex'];
 
     // Update the user's data
-    $sql = "UPDATE staff SET staff_id ='$id_staff', name='$name', email='$email', role ='$role' WHERE staff_ id=$user_id";
+    $sql = "UPDATE staff SET staff_id ='$id_staff', name='$name', sex='$sex', email='$email', contact_num='$contact', role ='$role' WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>
