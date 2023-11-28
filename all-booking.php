@@ -53,9 +53,12 @@
 								}
 	
 											
-								$sql = "SELECT * FROM booking "; // Assuming you have an 'id' field for each user
-								$result = $conn->query($sql);
-	
+
+											$sql = "SELECT * FROM booking "; // Assuming you have an 'id' field for each user
+											$result = $conn->query($sql);
+											$conn->query("SET @num := 0");
+                      $conn->query("UPDATE booking SET id = @num := @num + 1");
+
 								if ($result->num_rows > 0){
 									// output data of each row
 									while($row = $result->fetch_assoc()){
