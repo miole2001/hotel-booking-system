@@ -4,7 +4,7 @@ include('config/conn.php');
 
 if(isset($_POST['submit'])){
 
-$room = $_POST['room_type'];
+$room= $_POST['room_type'];
 $name = $_POST['name'];
 $members = $_POST['members'];
 $email = $_POST['email'];
