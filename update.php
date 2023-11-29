@@ -11,11 +11,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $staff = $result->fetch_assoc();
 } else {
+
     die('User not found.');
 }
 
 if (isset($_POST['submit'])) {
-
+  
     $id_staff = $_POST['staff-id'];
     $name = $_POST['name'];
     $email = $_POST['email'];

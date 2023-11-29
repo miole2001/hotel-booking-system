@@ -10,7 +10,7 @@
     </head>
     <body class="sb-nav-fixed">
 
-    <?php include('includes/navbar-top.php'); ?>
+    <?php include('user-navbar.php'); ?>
 
     <div id="layoutSidenav">
 
