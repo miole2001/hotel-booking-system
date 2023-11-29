@@ -19,25 +19,26 @@
                         </nav>
                     </div>
 
-                    <a class="nav-link text-white" href="all-staff.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-clipboard-user text white"></i></div>
-                        Staffs
+                    <a class="nav-link collapsed text-white " href="#" data-bs-toggle="collapse" data-bs-target="#collapseStaff" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon text-white">
+                            <i class="fa-solid fa-clipboard-user"></i>
+                        </div>
+                            Staff
+                        <div class="sb-sidenav-collapse-arrow text-white">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
                     </a>
+                    <div class="collapse " id="collapseStaff" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link text-white" href="all-staff.php">All staff</a>
+                            <a class="nav-link text-white" href="add-staff.php">Add staff</a>
+                        </nav>
+                    </div>     
 
-                    <a class="nav-link text-white" href="rooms.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-1-wave text-white"></i></div>
-                                Rooms
-                            </a>
-
-                            <a class="nav-link text-white" href="#">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-1-wave text-white"></i></div>
-                                Pricing
-                            </a>    
-
-                            <a class="nav-link text-white" href="user-list.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users text-white"></i></div>
-                                User list
-                            </a>
+                    <a class="nav-link text-white" href="user-list.php">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-users text-white"></i></div>
+                        User list
+                    </a>
                 </div>
             </div>
         </nav>

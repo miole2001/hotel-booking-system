@@ -2,33 +2,29 @@
 
 include('includes/header.php');
 
-$id = $_GET['staff_id'];
-
-// Include your database connection file
+$id = $_GET['id'];
 include('config/conn.php');
 
-
-// Fetch existing data based on the user's ID
-$sql = "SELECT staff_id, name, email, role FROM staff WHERE staff_id = $id";
+$sql = "SELECT * FROM staff WHERE id = $id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $staff = $result->fetch_assoc(); // assuming 'id' is a unique primary key, no need for a loop
+    $staff = $result->fetch_assoc();
 } else {
-    die('User not found.'); // Or handle this scenario appropriately
+    die('User not found.');
 }
 
-// Check if form has been submitted
-if(isset($_POST['submit'])) {
-    // Get the values submitted from the form
-    $id_staff = $_POST['id'];
+if (isset($_POST['submit'])) {
+
+    $id_staff = $_POST['staff-id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $role = $_POST['role'];
-
+    $contact = $_POST['contact'];
+    $sex = $_POST['sex'];
 
     // Update the user's data
-    $sql = "UPDATE staff SET staff_id ='$id_staff', name='$name', email='$email', role ='$role' WHERE staff_ id=$user_id";
+    $sql = "UPDATE staff SET staff_id ='$id_staff', name='$name', sex='$sex', email='$email', contact_num='$contact', role ='$role' WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script type='text/javascript'>
@@ -43,17 +39,73 @@ if(isset($_POST['submit'])) {
 $conn->close();
 ?>
 
-<div class="profile-container">
-    <h1>Update User Profile</h1>
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title mt-5">Add Booking</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="#" method="POST">
+                    <div class="col-md-4 mt-3">
+                        <div class="form-group">
+                            <label>Staff ID</label>
+                            <div>
+                                <input type="text" class="form-control" id="staff-id" name="staff-id" value="<?php echo $staff['staff_id']; ?>" required>
+                            </div>
+                        </div>
 
-        <!-- The form action is this file itself -->
-        <form action="" method="post">
-        Staff ID: <input type="text" name="id" value="<?php echo $user['staff_id']; ?>"><br>
-        Full Name: <input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
-        Email Address: <input type="text" name="email" value="<?php echo $user['email']; ?>"><br>
-        Role: <input type="text" name="role" value="<?php echo $user['role']; ?>"><br>
-        <input type="submit" name="submit" value="Update">
-    </form>
+                        <div class="form-group">
+                            <label>Full name</label>
+                            <div>
+                                <input type="text" class="form-control" id="name" name="name" value="<?php echo $staff['name']; ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sex</label>
+                            <select class="form-control " id="sex" name="sex" value="<?php echo $staff['sex']; ?>" required>
+                                <option>Select</option>
+                                <option value="male">male</option>
+                                <option value="female">female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div class="cal-icon">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $staff['email']; ?>" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Contact number</label>
+                            <div class="cal-icon">
+                                <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $staff['contact_num']; ?>" required>
+                            </div>
+                        </div>
+
+                        <label>Role</label>
+                        <select class="form-control " id="role" name="role" value="<?php echo $staff['role']; ?>" required>
+                            <option>Select</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Room Cleaners">Room Cleaners</option>
+                            <option value="Accountant">Accountant</option>
+                            <option value="Receiptionalist">Receiptionalist</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block mt-3">Update Staff</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
 <?php include('includes/scripts.php') ?>
