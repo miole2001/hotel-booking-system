@@ -9,7 +9,7 @@
 
                     <a class="nav-link text-white" href="settings.php">
                         <div class="sb-nav-link-icon text-white"><i class="fa-solid fa-user "></i></div>
-                        Update account
+                        Update my account
                     </a>
 
                     <a class="nav-link text-white" href="#">
