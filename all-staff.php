@@ -145,6 +145,8 @@
 
 										$sql = "SELECT * FROM staff";
         								$result = $conn->query($sql);
+										$conn->query("SET @num := 0");
+									$conn->query("UPDATE staff SET id = @num := @num + 1");
 
 										if ($result->num_rows > 0) {
 											// output data of each row
