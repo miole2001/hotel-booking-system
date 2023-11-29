@@ -31,6 +31,11 @@ $result = $conn->query($sql);
 
 }
 
+
+
+
+
+
 ?>
 
 <div class="page-wrapper mx-auto" style="width: 600px">
@@ -92,7 +97,7 @@ $result = $conn->query($sql);
 									<option value="Room Cleaners">Room Cleaners</option>
 									<option value="Accountant">Accountant</option>
 									<option value="Receiptionalist">Receiptionalist</option>
-								</select>
+											</select>
 							</div>
 
 							<div class="form-group mt-3">
