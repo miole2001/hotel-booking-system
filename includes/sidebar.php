@@ -32,14 +32,14 @@
                             Staff
                         <div class="sb-sidenav-collapse-arrow text-white">
                             <i class="fas fa-angle-down"></i>
-
+                        </div>
                     </a>
                     <div class="collapse " id="collapseStaff" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link text-white" href="all-staff.php">All staff</a>
                             <a class="nav-link text-white" href="add-staff.php">Add staff</a>
                         </nav>
-                    </div>     
+                    </div> 
 
                     <a class="nav-link text-white" href="user-list.php">
                       
